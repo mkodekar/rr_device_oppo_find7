@@ -18,14 +18,11 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/merkmod/config/apns.mk)
-
-# Inherit some common MerkMod stuff
-$(call inherit-product, vendor/merkmod/config/common.mk)
+# Inherit some common cm stuff
+$(call inherit-product, vendor/cm/config/common.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/merkmod/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
 # overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -93,7 +90,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
-PRODUCT_NAME := merkmod_find7
+PRODUCT_NAME := cm_find7
 PRODUCT_DEVICE := find7
 PRODUCT_BRAND := OPPO
 PRODUCT_MANUFACTURER := OPPO

@@ -40,7 +40,7 @@ TARGET_SPECIFIC_HEADER_PATH += device/oppo/find7/include
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 zcache.enabled=1 zcache.compressor=lz4 androidboot.selinux=permissive
-TARGET_KERNEL_CONFIG := merkmod_find7_defconfig
+TARGET_KERNEL_CONFIG := rr_find7_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # Audio
