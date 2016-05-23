@@ -18,18 +18,13 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common cm stuff
-$(call inherit-product, vendor/cm/config/common.mk)
-
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# Bootanimation and recovery
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH  := 1080
 
 # Init
 PRODUCT_PACKAGES += \
@@ -109,11 +104,20 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="msm8974-user 5.1.1 LMY47V 153 release-keys" \
     TARGET_DEVICE="FIND7" \
 
-# NOTE: dalvik heap and hwui memory ARE set in init depending on device
+# Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+
 # call dalvik heap config
-#$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+
 # call hwui memory config
-#$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/oppo/find7/find7-vendor.mk)
