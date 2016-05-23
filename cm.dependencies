@@ -4,5 +4,11 @@
     "repository": "mkodekar/rr_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
     "revision": "rr-6.0"
+  },
+  {
+    "remote": "github",
+    "repository": "merk-mod/bootable_recovery-twrp",
+    "target_path": "bootable/recovery-twrp",
+    "revision": "merk-3.0"
   }
 ]
